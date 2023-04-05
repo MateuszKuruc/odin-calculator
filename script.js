@@ -1,13 +1,24 @@
-let firstNumber = 0;
-let secondNumber = 0;
-let operator
-let resultNumber = 0;
+let firstNumber = 4;
+let secondNumber = 5;
+let operator = 0;
+let result = 0;
 
+if ((operator === '-' || operator === '+' || operator === 'X' || operator === '/') && firstNumber === 'number') {
+    displayValue.textContent = '';
+}
 
 let displayValue = document.querySelector('.display');
 const digits = document.querySelectorAll('.digits');
 const clearButton = document.querySelector('.clearButton');
 clearButton.addEventListener('click', allClear);
+const operatorButtons = document.querySelectorAll('.mathButton');
+const equalsButton = document.querySelector('.equalsButton');
+equalsButton.addEventListener('click', makeCalc)
+
+for (let i = 0; i < operatorButtons.length; i ++) {
+    const operatorButton = operatorButtons[i];
+    operatorButton.addEventListener('click', chooseOperator);
+}
 
 
 for (let i = 0; i < digits.length; i++) {
@@ -16,7 +27,7 @@ for (let i = 0; i < digits.length; i++) {
 }
 
 function changeDisplay() {
-    let digitPressed = this.innerHTML
+    let digitPressed = this.innerHTML;
     displayValue.textContent = displayValue.textContent + digitPressed
     // digits.style.color = 'red';
     console.log(displayValue.textContent);
@@ -24,30 +35,71 @@ function changeDisplay() {
 }
 
 function allClear() {
-    displayValue.textContent = ''
+    displayValue.textContent = '';
 }
 
+function chooseOperator() {
+    firstNumber = updateFirstNumber();
+    console.log(firstNumber);
+    let operatorChoice = this.innerHTML;
+    switch(operatorChoice) {
+        case '+':
+            operator = '+';
+            displayValue.textContent = '';
+            break;
+        case '-':
+            operator = '-';
+            displayValue.textContent = '';
+            break;
+        case 'X':
+            operator = 'X';
+            displayValue.textContent = '';
+            break;
+        case '/':
+            operator = '/';
+            displayValue.textContent = '';
+            break;
+        default:
+            operator
+    }
+}
 
+function updateFirstNumber() {
+    let firstNumber = Number(displayValue.textContent);
+    console.log(typeof firstNumber, firstNumber + ' is a firstNumber');
+    displayValue.textContent = '';
+    return firstNumber;
+}
 
 function add(firstNumber, secondNumber) {
-    return firstNumber + secondNumber;
+    result = firstNumber + secondNumber;
+    displayValue.textContent = result;
+    return result;
 }
 
 function subtract(firstNumber, secondNumber) {
-    return firstNumber - secondNumber;
+    result = firstNumber - secondNumber;
+    displayValue.textContent = result;
+    return result;
 }
 
 function multiply(firstNumber, secondNumber) {
-    return firstNumber * secondNumber;
+    result = firstNumber * secondNumber;
+    displayValue.textContent = result;
+    return result;
 }
 
 function divide(firstNumber, secondNumber) {
-    return firstNumber / secondNumber;
+    result = firstNumber / secondNumber;
+    displayValue.textContent = result;
+    return result;
 }
 
-function operate(firstNumber, operator, secondNumber) {
-    if (operator === '+') return add(firstNumber, secondNumber);
-    else if (operator === '-') return subtract(firstNumber, secondNumber);
-    else if (operator === '*') return multiply(firstNumber, secondNumber);
-    else if (operator === '/') return divide(firstNumber, secondNumber);   
+function makeCalc(firstNumber, operator, secondNumber) {
+    secondNumber = Number(displayValue.textContent);
+    console.log(typeof secondNumber, secondNumber + ' is the second number');
+    if (operator === '+') add(firstNumber, secondNumber);
+    else if (operator === '-') subtract(firstNumber, secondNumber);
+    else if (operator === 'X') multiply(firstNumber, secondNumber);
+    else if (operator === '/') divide(firstNumber, secondNumber);   
 }
