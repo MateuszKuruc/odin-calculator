@@ -13,7 +13,7 @@ const clearButton = document.querySelector('.clearButton');
 clearButton.addEventListener('click', allClear);
 const operatorButtons = document.querySelectorAll('.mathButton');
 const equalsButton = document.querySelector('.equalsButton');
-equalsButton.addEventListener('click', makeCalc)
+equalsButton.addEventListener('click', updateSecondNumber);
 
 for (let i = 0; i < operatorButtons.length; i ++) {
     const operatorButton = operatorButtons[i];
@@ -96,10 +96,14 @@ function divide(firstNumber, secondNumber) {
 }
 
 function makeCalc(firstNumber, operator, secondNumber) {
-    secondNumber = Number(displayValue.textContent);
-    console.log(typeof secondNumber, secondNumber + ' is the second number');
-    if (operator === '+') add(firstNumber, secondNumber);
+    if (operator === '+') console.log(add(firstNumber, secondNumber));
     else if (operator === '-') subtract(firstNumber, secondNumber);
     else if (operator === 'X') multiply(firstNumber, secondNumber);
     else if (operator === '/') divide(firstNumber, secondNumber);   
+}
+
+function updateSecondNumber() {
+    secondNumber = Number(displayValue.textContent);
+    console.log(typeof secondNumber, secondNumber + ' is the second number');
+    makeCalc(firstNumber, operator, secondNumber);
 }
