@@ -51,19 +51,20 @@ function showResult() {
     if (currentNumber.innerHTML === '') return;
     switch(operator.innerHTML) {
         case '+':
-            result = a + b;
+            result = Math.round((a + b) * 1000) / 1000;
             break;
         case '-':
-            result = a - b;
+            result = Math.round((a - b) * 1000) / 1000;
             break;
         case 'X':
-            result = a * b;
+            result = Math.round((a * b) * 1000) / 1000;
+            // result = a * b;
             break;
         case '÷':
-            result = a / b;
+            result = Math.round((a / b) * 1000) / 1000;
             break;
         case '2^':
-            result = a ** b;
+            result = Math.round((a ** b) * 1000) / 1000;
     }
     currentNumber.innerHTML = result;
     operator.innerHTML = '';
