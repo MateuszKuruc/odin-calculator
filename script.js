@@ -5,6 +5,7 @@ const operatorButtons = document.querySelectorAll(".mathButton");
 const equalsButton = document.querySelector(".equalsButton");
 const digits = document.querySelectorAll(".digits");
 const clearButton = document.querySelector(".clearButton");
+const deleteButton = document.querySelector('.delete')
 
 for (let i = 0; i < operatorButtons.length; i++) {
   const operatorButton = operatorButtons[i];
@@ -18,10 +19,17 @@ for (let i = 0; i < digits.length; i++) {
 
 equalsButton.addEventListener("click", showResult);
 clearButton.addEventListener("click", clearScreen);
+deleteButton.addEventListener('click', deleteNumber);
 
 let result = "";
 
 function displayNumbers() {
+    if (currentNumber.innerHTML.includes('.') && this.textContent === '.') {
+        return;
+    }
+    if (this.textContent === '.' && currentNumber.innerHTML === '') {
+        return currentNumber.innerHTML = '0.'
+    }
   currentNumber.innerHTML += this.textContent;
 }
 
@@ -48,6 +56,8 @@ function showResult() {
         case '÷':
             result = a / b;
             break;
+        case '2^':
+            result = a ** b;
     }
     currentNumber.innerHTML = result;
     operator.innerHTML = '';
@@ -58,4 +68,8 @@ function clearScreen() {
   currentNumber.innerHTML = "";
   previousNumber.innerHTML = "";
   operator.innerHTML = "";
+}
+
+function deleteNumber() {
+    currentNumber.innerHTML = currentNumber.innerHTML.slice (0, -1);
 }

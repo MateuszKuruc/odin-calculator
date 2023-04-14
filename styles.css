@@ -57,10 +57,10 @@ body {
 }
 
 .functionButton:hover {
-    background-color:hwb(34 84% 15%);
+    background-color:hwb(40 25% 12%);
 }
 
-.digits {
+.digits, .delete {
     font-size: 40px;
     width: 90px;
     height: 70px;
