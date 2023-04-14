@@ -34,6 +34,12 @@ function displayNumbers() {
 }
 
 function operate() {
+    if (currentNumber.innerHTML === '' && this.textContent === '-') {
+        return currentNumber.innerHTML = '-';
+    }
+    if (operator.innerHTML != '') {
+        showResult();
+    }
   previousNumber.innerHTML = currentNumber.innerHTML;
   operator.innerHTML = this.innerHTML;
   currentNumber.innerHTML = "";
