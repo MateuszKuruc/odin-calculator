@@ -9,15 +9,12 @@ body {
 .calculator {
   display: flex;
   flex-wrap: wrap;
-  /* border: 5px solid black; */
   width: 400px;
   height: 500px;
-    border-radius: 10%;
+  border-radius: 10%;
 }
 
 .display {
-  /* width: 360px;
-  height: 150px; */
   flex: 1 1 auto;
   min-height: 100px;
   display: flex;
@@ -30,7 +27,7 @@ body {
   box-shadow: 0px 0px 24px 17px rgba(66, 68, 90, 1);
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  border: 15px double rgb(96, 5, 101)
+  border: 15px double rgb(96, 5, 101);
 }
 
 .previousNumber {
@@ -48,6 +45,10 @@ body {
 .buttons {
   display: flex;
   flex: 1 1 100%;
+  border: 5px solid rgb(14, 6, 85);
+  border-top: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .functionSection {
@@ -58,16 +59,14 @@ body {
 }
 
 .clearButton {
-    border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 #zero {
-    border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .functionButton {
-  /* width: 90px; */
-  /* height: 40px; */
   flex: 1;
   font-size: 20px;
   background-color: hwb(34 84% 2%);
@@ -76,24 +75,25 @@ body {
 
 .functionButton:hover {
   background-color: hwb(40 25% 12%);
+  box-shadow: 0px 0px 24px 17px rgba(66, 68, 90, 1);
 }
 
 .digits,
 .delete {
-    border: 1px solid cadetblue;
+  border: 1px solid cadetblue;
   font-size: 40px;
-  /* width: 90px;
-  height: 70px; */
   flex: 1 1 33%;
   background-color: hsl(180, 100%, 27%);
 }
 
 .digits:hover {
   background-color: hsl(180, 100%, 37%);
+  box-shadow: 0px 0px 24px 17px rgba(66, 68, 90, 1);
 }
 
 .delete:hover {
-    background-color: hsl(180, 100%, 37%);
+  background-color: hsl(180, 100%, 37%);
+  box-shadow: 0px 0px 24px 17px rgba(66, 68, 90, 1);
 }
 
 .leftSection {

@@ -13,10 +13,6 @@ for (let i = 0; i < operatorButtons.length; i++) {
   operatorButton.addEventListener("click", operate);
 }
 
-// for (let i =0; i < operatorButtons.length; i++) {
-//     const opButton = operatorButtons[i];
-//     opButton.addEventListener('keydown', function(e))
-// }
 for (let i = 0; i < digits.length; i++) {
   const digit = digits[i];
   digit.addEventListener("click", displayNumbers);
@@ -63,12 +59,6 @@ window.addEventListener("keydown", function (e) {
 });
 
 let result = "";
-
-// function calcKeyboard() {
-//     previousNumber.innerHTML = currentNumber.innerHTML;
-//     operator.innerHTML = operatorValue;
-//     currentNumber.innerHTML = '';
-// }
 
 function displayNumbers() {
   if (currentNumber.innerHTML.includes(".") && this.textContent === ".") {
