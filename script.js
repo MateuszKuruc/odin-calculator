@@ -29,7 +29,7 @@ window.addEventListener("keydown", function (e) {
     deleteNumber();
   } else if (e.code === 'Delete') {
     clearScreen();
-  } else if (e.shiftKey === false && e.code === "Equal") {
+  } else if (e.shiftKey === false && e.code === "Equal" || e.code === 'Enter') {
     showResult();
   } else if (e.code === "Period" && currentNumber.innerHTML === "") {
     currentNumber.innerHTML = "0.";
