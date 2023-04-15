@@ -44,8 +44,11 @@ window.addEventListener("keydown", function (e) {
   if (e.shiftKey === true && e.code === 'Equal') {
     operatorValue = '+';
     operate();
-  } else if (e.shiftKey === true && (e.code === 'Digit8' || e.key === '8' || e.key === '*')) {
+  } else if (e.shiftKey === true && e.code === 'Digit8') {
     operatorValue = 'X';
+    operate();
+  } else if (e.shiftKey === true && e.code === 'Digit6') {
+    operatorValue = '2^'
     operate();
   } else if (e.shiftKey === false && e.code === 'Slash') {
     operatorValue = '÷';

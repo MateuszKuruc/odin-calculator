@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 400px;
-  height: 500px;
+  min-height: 500px;
   border-radius: 10%;
 }
 
@@ -44,6 +44,7 @@ body {
 
 .buttons {
   display: flex;
+  height: 300px;
   flex: 1 1 100%;
   border: 5px solid rgb(14, 6, 85);
   border-top: none;
