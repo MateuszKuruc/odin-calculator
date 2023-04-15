@@ -23,7 +23,7 @@ clearButton.addEventListener("click", clearScreen);
 deleteButton.addEventListener("click", deleteNumber);
 window.addEventListener("keydown", function (e) {
   console.log(e);
-  if (e.shiftKey === false && e.code === `Digit${e.key}`) {
+  if (e.shiftKey === false && e.code === `Digit${e.key}` && e.code != 'Digit0') {
     currentNumber.innerHTML += e.key;
   } else if (e.code === "Backspace") {
     deleteNumber();
@@ -48,7 +48,7 @@ window.addEventListener("keydown", function (e) {
     operatorValue = 'X';
     operate();
   } else if (e.shiftKey === true && e.code === 'Digit6') {
-    operatorValue = '2^'
+    operatorValue = 'x^'
     operate();
   } else if (e.shiftKey === false && e.code === 'Slash') {
     operatorValue = '÷';
@@ -71,6 +71,9 @@ function displayNumbers() {
     return (currentNumber.innerHTML = "0.");
   }
   currentNumber.innerHTML += this.textContent;
+  if (this.textContent === '0') {
+    currentNumber.innerHTML = '';
+  }
 }
 
 function operate() {
@@ -109,7 +112,7 @@ function showResult() {
       result = Math.round((a / b) * 1000) / 1000;
       if (b === 0) result = "lol, try again";
       break;
-    case "2^":
+    case "x^":
       result = Math.round(a ** b * 1000) / 1000;
   }
   currentNumber.innerHTML = result;
