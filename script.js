@@ -23,9 +23,22 @@ clearButton.addEventListener("click", clearScreen);
 deleteButton.addEventListener("click", deleteNumber);
 window.addEventListener("keydown", function (e) {
   console.log(e);
-  if (e.shiftKey === false && e.code === `Digit${e.key}` && e.code != 'Digit0') {
+  if (e.shiftKey === false && e.code === `Digit${e.key}` && currentNumber.innerHTML != '') {
     currentNumber.innerHTML += e.key;
-  } else if (e.code === "Backspace") {
+  } 
+  if (e.shiftKey === false && e.code === `Digit${e.key}` && currentNumber.innerHTML === '' && e.code != 'Digit0') {
+    currentNumber.innerHTML += e.key;
+  } else if (e.shiftKey === false && e.code === 'Digit0' && currentNumber.innerHTML === '') {
+    currentNumber.innerHTML = '0.'
+  } 
+//   } else if (e.shiftKey === false && e.code === 'Digit0' && currentNumber.innerHTML != '') {
+// currentNumber.innerHTML 
+  // } else if (e.shiftKey === false && e.code === `Digit${e.key}` && currentNumber.innerHTML === '0') {
+  //   currentNumber.innerHTML = 0;
+  // }
+
+
+  else if (e.code === "Backspace") {
     deleteNumber();
   } else if (e.code === 'Delete') {
     clearScreen();
@@ -71,8 +84,8 @@ function displayNumbers() {
     return (currentNumber.innerHTML = "0.");
   }
   currentNumber.innerHTML += this.textContent;
-  if (this.textContent === '0') {
-    currentNumber.innerHTML = '';
+  if (this.textContent === '0' && currentNumber.innerHTML === '0') {
+    currentNumber.innerHTML = '0.';
   }
 }
 
