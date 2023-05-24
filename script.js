@@ -31,12 +31,6 @@ window.addEventListener("keydown", function (e) {
   } else if (e.shiftKey === false && e.code === 'Digit0' && currentNumber.innerHTML === '') {
     currentNumber.innerHTML = '0.'
   } 
-//   } else if (e.shiftKey === false && e.code === 'Digit0' && currentNumber.innerHTML != '') {
-// currentNumber.innerHTML 
-  // } else if (e.shiftKey === false && e.code === `Digit${e.key}` && currentNumber.innerHTML === '0') {
-  //   currentNumber.innerHTML = 0;
-  // }
-
 
   else if (e.code === "Backspace") {
     deleteNumber();
@@ -140,5 +134,9 @@ function clearScreen() {
 }
 
 function deleteNumber() {
-  currentNumber.innerHTML = currentNumber.innerHTML.slice(0, -1);
+  if (currentNumber.innerHTML === 'lol, try again') {
+    currentNumber.innerHTML = '';
+  } else {
+    currentNumber.innerHTML = currentNumber.innerHTML.slice(0, -1);
+  }
 }
